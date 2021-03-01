@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<style>
+  body{
+  top: 0px !important;
+  }
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+  <title>EC Company</title>
+
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/templatemo-style.css">
+</head>
+
+<body class="is-preload">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+
+        <!-- Header -->
+        <header id="header">
+          <div class="logo">
+            <a href="/">EC COMPANY</a>
+          </div>
+        </header>
+
+        <!-- Banner -->
+        <section class="tables">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="section-heading">
+                    <h2>Products</h2>
+                  </div>
+                  <div class="default-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <td>
+                            <fieldset>
+                              <input ng-model='query.productSKU' placeholder="SKU" >
+                            </fieldset>
+                          </td>
+                          <td>
+                            <fieldset>
+                              <input ng-model='query.name' placeholder="Name" >
+                          </fieldset>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>SKU</th>
+                          <th>NAME</th>
+                          <!--<th>QUANTITY</th>-->
+                          <th>OPTIONS</th>
+                          <th ng-if='window'>QUANTITY TO SHIP/SEND {{fila}}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat='product in items | filter: query : strict'>
+                          <td>{{product.productSKU}}</td>
+                          <td>{{product.name}}</td>
+                          <!--<td>{{product.quantity}}</td>-->
+                          <td>
+                            <button ng-click='show(product.productSKU)'>RECEIVE/SHIP PRODUCT</button>
+                          </td>
+                          <td  ng-if="window && product.productSKU == fila">
+                            <fieldset>
+                              <input placeholder="Quantity"  type="number" ng-model="newQuantity" >
+                            </fieldset>
+                            <button ng-click='ship(newQuantity)'>SHIP</button>
+                            <button ng-click='receive(newQuantity)'>RECEIVE</button>
+                            <button ng-click='cancel()'>CANCEL</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <ul class="table-pagination">
+                      <li><a href="#">Previous</a></li>
+                      <li><a href="#">1</a></li>
+                      <li class="active"><a href="#">2</a></li>
+                      <li><a href="#">...</a></li>
+                      <li><a href="#">8</a></li>
+                      <li><a href="#">9</a></li>
+                      <li><a href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
