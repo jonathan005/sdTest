@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+  <title>EC Company</title>
+
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/assets/css/templatemo-style.css">
+</head>
+
+<body class="is-preload">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+
+        <!-- Header -->
+        <header id="header">
+          <div class="logo">
+            <a href="/">EC COMPANY</a>
+          </div>
+        </header>
+
+        <!-- Banner -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-heading">
+                    <h2>PRODUCTS BY SKU</h2>
+                </div>
+                <canvas id="bar" class="chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-options="options"> chart-series="series"
+                </canvas>
+            </div>
+            <div class="col-md-6">
+                <div class="section-heading">
+                    <h2>PRODUCTS BY SEGMENT</h2>
+                </div>
+                <canvas id="pie" class="chart chart-pie" chart-data="dataSegment" chart-labels="labelSegmnet">
+                </canvas>
+            </div>
+        </div>
+        <section class="tables">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="section-heading">
+                    <h2>LIST OF ALL PRODUCTS</h2>
+                  </div>
+                  <div class="default-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <td>
+                            <fieldset>
+                              <input ng-model='query.productSKU' placeholder="SKU" >
+                            </fieldset>
+                          </td>
+                          <td>
+                            <fieldset>
+                              <input ng-model='query.name' placeholder="Name" >
+                          </fieldset>
+                          </td>
+                          <td>
+                            <fieldset>
+                              <input ng-model='query.segment' placeholder="Segment" >
+                          </fieldset>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>SKU</th>
+                          <th>NAME</th>
+                          <th>SEGMENT</th>
+                          <th>QUANTITY</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat='product in items | filter: query : strict'>
+                          <td>{{product.productSKU}}</td>
+                          <td>{{product.name}}</td>
+                          <td>{{product.segment}}</td>
+                          <td>{{product.quantity}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <ul class="table-pagination">
+                      <li><a href="#">Previous</a></li>
+                      <li><a href="#">1</a></li>
+                      <li class="active"><a href="#">2</a></li>
+                      <li><a href="#">...</a></li>
+                      <li><a href="#">8</a></li>
+                      <li><a href="#">9</a></li>
+                      <li><a href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>

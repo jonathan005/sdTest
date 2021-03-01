@@ -1,7 +1,6 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
 from django.core import serializers
 from company.Management.models import Product
 from company.Management.serializers import ProductSerializer,QuantitySerializer
@@ -24,14 +23,17 @@ def eventDetail(request,pk):
        
 @api_view(['POST'])
 def eventCreate(request):
+    print(request.data)
     serializer = ProductSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=201)
     else:
+        print(serializer.error_messages)
         return Response(status=400)
 @api_view(['POST'])
 def eventUpdate(request,pk):
+    print(request)
     # pylint: disable=no-member
     products = Product.objects.get(productID=pk)
     serializer = ProductSerializer(instance=products,data=request.data)
@@ -40,7 +42,7 @@ def eventUpdate(request,pk):
         return Response(serializer.data)
     else:
         return Response(status=400)
-@api_view(['POST'])
+@api_view(['PUT'])
 def eventModQuantity(request):
      # pylint: disable=no-member
     body_unicode = request.body.decode('utf-8')
