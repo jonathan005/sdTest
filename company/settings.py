@@ -82,8 +82,8 @@ DATABASES = {
         'NAME': 'test',
 
         'USER': 'postgres',
-
-        'PASSWORD': '12345',
+        
+        'PASSWORD': 12345,
 
         'HOST': 'localhost',
 
@@ -129,3 +129,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/app/static/'
