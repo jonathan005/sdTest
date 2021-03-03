@@ -33,7 +33,7 @@ class TestView(TestCase):
 class ClassTest():
     # pylint: disable=no-member
     Product.objects.create(
-            productID=1,
+            productID=0,
             name='Sardine',
             productSKU="SDN500EC",
             price=9.99,
