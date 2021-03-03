@@ -20,7 +20,6 @@ class TestView(TestCase):
         response = client.get(reverse('list'))
         self.assertEquals(response.status_code,200)
     def testing_POST(self):
-        # pylint: disable=no-member
         response = Client().post(reverse('create'), {
             'name':'Sardine',
             'productSKU':"SDN500EC",
@@ -31,3 +30,15 @@ class TestView(TestCase):
             'segment':'F'
         })
         self.assertEquals(response.status_code,201)
+class ClassTest():
+    # pylint: disable=no-member
+    Product.objects.create(
+            productID=1,
+            name='Sardine',
+            productSKU="SDN500EC",
+            price=9.99,
+            weight=5,
+            quantity=1,
+            registerDate='2020/01/01',
+            segment='F'
+    )
