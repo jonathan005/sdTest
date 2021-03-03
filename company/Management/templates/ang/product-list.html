@@ -61,7 +61,7 @@
                         <tr>
                           <th>SKU</th>
                           <th>NAME</th>
-                          <!--<th>QUANTITY</th>-->
+                          <th>QUANTITY</th>
                           <th>OPTIONS</th>
                           <th ng-if='window'>QUANTITY TO SHIP/SEND {{fila}}</th>
                         </tr>
@@ -70,17 +70,20 @@
                         <tr ng-repeat='product in items | filter: query : strict'>
                           <td>{{product.productSKU}}</td>
                           <td>{{product.name}}</td>
-                          <!--<td>{{product.quantity}}</td>-->
+                          <td>{{product.quantity}}</td>
                           <td>
                             <button ng-click='show(product.productSKU)'>RECEIVE/SHIP PRODUCT</button>
                           </td>
                           <td  ng-if="window && product.productSKU == fila">
                             <fieldset>
-                              <input placeholder="Quantity"  type="number" ng-model="newQuantity" >
+                              <input placeholder="Quantity" min="1"  type="number" ng-model="newQuantity" >
                             </fieldset>
-                            <button ng-click='ship(product.productID, newQuantity)'>SHIP</button>
+                            <button ng-click='ship(product.productID,product.quantity, newQuantity)'>SHIP</button>
                             <button ng-click='receive(product.productID, newQuantity)'>RECEIVE</button>
                             <button ng-click='cancel()'>CANCEL</button>
+                            <div  ng-if="mensaje" class="col-md-12">
+                              <label style="color: red;">Not enough items of {{product.productSKU}} available</label>
+                            </div>
                           </td>
                         </tr>
                       </tbody>

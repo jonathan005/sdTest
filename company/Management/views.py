@@ -10,7 +10,7 @@ def eventListAll(request):
      # pylint: disable=no-member
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=200)
 @api_view(['GET'])
 def eventDetail(request,pk):
      # pylint: disable=no-member]

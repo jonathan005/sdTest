@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'x#bz%teo-16rt+i5@x8x+58y3g=@qfp3pb=5rmmsxfewqz29gi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,13 +79,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'test',
+        'NAME': 'postgres',
 
         'USER': 'postgres',
-        
-        'PASSWORD': 12345,
 
-        'HOST': 'localhost',
+        'HOST': 'db',
 
         'PORT': '5432',
     }
@@ -129,4 +127,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/app/static/'
+STATIC_ROOT = '/static/'
